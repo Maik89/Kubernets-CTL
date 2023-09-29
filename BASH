@@ -1,0 +1,12 @@
+source <(kubectl completion bash) # set up autocomplete in bash into the current shell, bash-completion package should be installed first.
+echo "source <(kubectl completion bash)" >> ~/.bashrc # add autocomplete permanently to your bash shell.
+
+alias k=kubectl
+complete -o default -F __start_kubectl k
+
+ZSH
+source <(kubectl completion zsh)  # set up autocomplete in zsh into the current shell
+echo '[[ $commands[kubectl] ]] && source <(kubectl completion zsh)' >> ~/.zshrc # add autocomplete permanently to your zsh shell
+
+FISH
+echo 'kubectl completion fish | source' >> ~/.config/fish/config.fish  # add kubectl autocompletion permanently to your fish shell 
